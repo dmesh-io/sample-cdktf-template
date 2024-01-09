@@ -3,6 +3,8 @@ from cdktf_cdktf_provider_azurerm.provider import (
     AzurermProvider,
     AzurermProviderFeatures,
 )
+from cdktf_cdktf_provider_azurerm.storage_account import StorageAccount
+from cdktf_cdktf_provider_azurerm.storage_container import StorageContainer
 from constructs import Construct
 
 from infra.config import InfraConfig
@@ -17,7 +19,24 @@ class InfraStack(TerraformStack):
         self.initialize_backend()
         self.initialize_provider()
 
-        # define resources here
+        # define resources here e.g.
+        self.storage_account = StorageAccount(
+            scope=self,
+            id_="template_storage_account",
+            name="templatestoacc123",
+            resource_group_name=self.config.resource_group_name,
+            location=self.config.azure_location,
+            account_tier="Standard",
+            account_replication_type="LRS"
+        )
+
+        self.data_container = StorageContainer(
+            scope=self,
+            id_="template_storage_container",
+            storage_account_name=self.storage_account.name,
+            name="data_container"
+        )
+
 
     def initialize_backend(self):
         AzurermProvider(

@@ -13,6 +13,8 @@ class InfraConfig(BaseSettings):
     backend_storage_account: str
     backend_storage_container: str
     backend_storage_account_key: str
+    resource_group_name: str
+    azure_location: str
 
 
 def get_config(path: Path) -> InfraConfig:
