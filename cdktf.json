@@ -1,0 +1,12 @@
+{
+  "language": "python",
+  "app": "PYTHONPATH='src/' python3 src/infra/deployer.py",
+  "projectId": "5845b983-86d0-4a01-812c-1a6b50422401",
+  "sendCrashReports": "false",
+  "terraformProviders": [],
+  "terraformModules": [],
+  "codeMakerOutput": "imports",
+  "context": {
+
+  }
+}

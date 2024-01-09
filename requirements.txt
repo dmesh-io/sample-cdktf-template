@@ -1,0 +1,6 @@
+cdktf
+cdktf-cdktf-provider-azurerm
+pydantic
+pydantic-settings
+python-dotenv
+pyyaml
